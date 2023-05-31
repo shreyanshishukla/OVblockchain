@@ -17,7 +17,7 @@ contract Election {
       addCandidate("Shreyanshi",343);
         
     }
-    function addCandidate(string memory _name,uint _id) private
+    function addCandidate(string memory _name,uint _id) public
     {
         candidatesCount++;
         candidates[_id]=Candidate(_id,_name,0);
@@ -26,6 +26,10 @@ contract Election {
       
         candidates[_candidateId].voteCount ++;
         totalVotes++;
+    }
+
+     function get() public view returns(uint) {
+        return candidatesCount;
     }
 }
 //test
